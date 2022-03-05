@@ -37,6 +37,6 @@ export async function updatePokemon(pokemon: IPokemon, pokemonId: string) {
         console.log("Pokemon actualizado"); 
     })
     .catch((error : any) => {
-      console.error("Error borrando libro con id: " + pokemonId, error);
+      console.error("Error borrando pokemon con id: " + pokemonId, error);
     });
 }
