@@ -10,6 +10,6 @@ export default function( app: Express){
     //define routes
     app.get('/api/pokemons', getAllHandler);
     app.get('/api/random', getTwoRandomHandler);
-    app.put('/api/votes', updateOneHandler);
+    app.put('/api/votes/:id', updateOneHandler);
 
 }
