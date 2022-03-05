@@ -9,6 +9,12 @@ export async function getAllPokemons() {
   });
 }
 
+export async function createPokemon(pokemon : IPokemon){
+  return Pokemon.create(pokemon).catch((error: any) => {
+    console.error("Error creating pokemon", error); 
+  })
+}
+
 
 //Get a book for id :
 export async function getPokemon(pokemonId: string) {
