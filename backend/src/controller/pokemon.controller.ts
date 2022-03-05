@@ -1,6 +1,10 @@
 import { IPokemon } from "../models/pokemon.model";
 import { Request, Response } from "express";
-import { getAllPokemons, getPokemon, updatePokemon } from "../services/pokemon.service";
+import {
+  getAllPokemons,
+  getPokemon,
+  updatePokemon,
+} from "../services/pokemon.service";
 import pokemonRoutes from "../../routes/pokemon.routes";
 
 //el controlador es otro fichero donde separamos más la lógica de la app, en este caso lidiamos con las peticiones del cliente
@@ -30,8 +34,6 @@ export async function updateOneHandler(req: Request, res: Response) {
   const pokemon = req.body as IPokemon;
   await updatePokemon(pokemon, id)
     .then((result: any) => {
-      if (result) res.status(200).json(result);
-      res.status(404).send({ mensaje: "Pokemon no encontrado" });
-    })
+        return res.status(200).json(result);})
     .catch((error) => res.status(500).send(error));
 }
