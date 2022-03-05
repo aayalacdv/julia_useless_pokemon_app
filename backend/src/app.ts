@@ -17,42 +17,43 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.listen(port, host, async () => {
+
   console.log(`escuchando en http://${host}:${port}`);
   connect();
   routes(app);
-
-  const getPokemonDetaills = async ( url : string ) => {
-    const response = await fetch(url); 
-    const data = await response.json();  
-
-    const imgUrl = data.sprites.other.home.front_default;
-    return imgUrl;
-  } 
-
-  const getPokemons = async () => {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=150");
-    const data = await response.json();
-    data.results.forEach(async function(pokemon : any, index: any) {
-      const name = pokemon.name
-      const img = await getPokemonDetaills(pokemon.url)
-
-      const created = {
-        name: name, 
-        imgUrl: img, 
-        votes: 0
-      };
-
-      console.log(created);
-      
-
-      await createPokemon(created as IPokemon); 
-
-    });
-  };
-
-  //await getPokemons();
-  const result : any = await getAllPokemons(); 
+  const result = await getAllPokemons(); 
   console.log(result);
 
-
 });
+
+
+  // const getPokemonDetaills = async ( url : string ) => {
+  //   const response = await fetch(url); 
+  //   const data = await response.json();  
+
+  //   const imgUrl = data.sprites.other.home.front_default;
+  //   return imgUrl;
+  // } 
+
+  // const getPokemons = async () => {
+  //   const response = await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=150");
+  //   const data = await response.json();
+  //   data.results.forEach(async function(pokemon : any, index: any) {
+  //     const name = pokemon.name
+  //     const img = await getPokemonDetaills(pokemon.url)
+
+  //     const created = {
+  //       name: name, 
+  //       imgUrl: img, 
+  //       votes: 0
+  //     };
+
+  //     console.log(created);
+      
+
+  //     await createPokemon(created as IPokemon); 
+
+  //   });
+  // };
+
+  // const result : any = await getAllPokemons(); 

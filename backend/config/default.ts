@@ -3,6 +3,6 @@ export default {
     host: '0.0.0.0',
     //URI de conexión a la base de datos
     port: 8080, 
-    dbUri: 'mongodb://localhost:27017/uselessApp',
+    dbUri: 'mongodb+srv://julia:julia@cluster0.sbfwk.mongodb.net/pokemonApp?retryWrites=true&w=majority',
 
 }
