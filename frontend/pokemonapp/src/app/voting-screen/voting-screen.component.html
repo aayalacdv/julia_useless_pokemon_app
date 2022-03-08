@@ -1,0 +1,13 @@
+<div class="main">
+  <div class="pregunta m-3">
+    <h1 class="m-3">¿Que pokémon es más gordo?</h1>
+  </div>
+
+  <div class="pokemons">
+    <div class="images" *ngFor="let item of pokemons" (click)="clickHandler(item.name)">
+      <button mat-button>
+        <img src="{{ item.imgUrl }}" />
+      </button>
+    </div>
+  </div>
+</div>

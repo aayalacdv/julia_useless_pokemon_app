@@ -1,0 +1,20 @@
+<div class="col-lg-8 offset-lg-2">
+    <div class="card">
+        <div class="card-body text-center">
+            <span class="titulo">RANKING POKEMONS GORDOS</span>
+            <button class="btn btn-success" routerLink="/">VOTAR</button>
+            <table class="table table-striped mt-3">
+              <tbody>
+                <tr *ngFor="let pokemon of listPokemon">
+                  <td><img class="pokemon" src="{{ pokemon.imgUrl }}" /></td>
+                  <td>{{ pokemon.name }}</td>
+                  <td>{{ pokemon.votes }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 style="margin-top: 10px;" *ngIf="listPokemon.length == 0">No hay pokemons</h5>
+        </div>
+    </div>
+</div>
+
+

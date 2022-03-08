@@ -10,47 +10,15 @@ import { HttpClient } from '@angular/common/http';
 })
 
 
-export class AppComponent implements OnInit {
+export class AppComponent  {
 
-  URL : string = 'http://localhost:8080/api/random'
 
-  constructor( private http: HttpClient){}
+  constructor( ){}
 
-  ngOnInit(): void {
-    console.log("on init ");
-    //llamar al backaend 
-    //meter los datos de dos pokemons random en el array de pokemons
-    this.http.get(this.URL).subscribe((data : any) => {
-      const pokemon1 : Pokemon = data.pokemon1 as Pokemon; 
-      const pokemon2 : Pokemon = data.pokemon2 as Pokemon;
 
-      this.pokemons = [pokemon1, pokemon2]; 
-       
-    });
 
-  }
-  
-  charmander : Pokemon = {
-    name: "Charmander", 
-    votes: 0, 
-    imgUrl :"../assets/images/charmander.png"
-  }
 
-  pikachu: Pokemon = {
-    name: "Pikachu", 
-    votes: 0, 
-    imgUrl :"../assets/images/pikachu.png"
-  }
 
-  pokemons : Pokemon[] = []; 
-  
   title = 'pokemonapp';
 
-  clickHandler (name : string) {
-    this.pokemons.forEach((pokemon: Pokemon) => {
-      if(pokemon.name === name ) {
-        pokemon.votes++; }
-        console.log(`${pokemon.name} vote count = ${pokemon.votes}`);
-    }); 
-  }
 }
